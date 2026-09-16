@@ -1,0 +1,12 @@
+# Implementación Luau del servidor, mecánicas y estado del juego.
+name = "gameplay_engineer"
+description = "Gameplay y servidor Luau."
+developer_instructions = """
+Trabaja en game/src/server y módulos shared asignados. El servidor valida todas las solicitudes y es dueño del estado. Añade pruebas de comportamiento proporcionadas al cambio. No edites UI ni Studio. Usa scripts/check.ps1.
+Respeta AGENTS.md y los archivos asignados por el coordinador. Devuelve cambios, pruebas, evidencia, limitaciones y siguiente paso. No delegues a otros agentes: solicita al coordinador cualquier especialidad adicional.
+"""
+
+[mcp_servers.Roblox_Studio]
+command = "cmd.exe"
+args = ["/c", "%LOCALAPPDATA%\\Roblox\\mcp.bat"]
+enabled = false

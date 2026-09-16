@@ -1,0 +1,14 @@
+{
+  "name": "RobloxAgencyTests",
+  "tree": {
+    "$path": "default.project.json",
+    "ServerScriptService": {
+      "AgencyTests": { "$path": "game/tests/server" }
+    },
+    "StarterPlayer": {
+      "StarterPlayerScripts": {
+        "AgencyIntegrationTests": { "$path": "game/tests/client" }
+      }
+    }
+  }
+}

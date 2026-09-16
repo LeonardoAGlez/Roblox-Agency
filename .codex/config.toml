@@ -1,0 +1,35 @@
+# Configuración de proyecto. Conserva modelo, credenciales y permisos del host.
+[agents]
+max_threads = 3
+
+[agents.game_designer]
+description = "Diseño de experiencia e investigación de público, referencias, narrativa y ciclo de juego."
+config_file = "agents/game_designer.toml"
+
+[agents.tech_lead]
+description = "Arquitectura y revisión independiente de contratos, seguridad y mantenibilidad."
+config_file = "agents/tech_lead.toml"
+
+[agents.gameplay_engineer]
+description = "Implementación Luau del servidor, mecánicas y estado del juego."
+config_file = "agents/gameplay_engineer.toml"
+
+[agents.ui_engineer]
+description = "Interfaz, controles, tutorial y adaptación a dispositivos."
+config_file = "agents/ui_engineer.toml"
+
+[agents.technical_artist]
+description = "Escenarios, estilo, modelos, animación, efectos y audio."
+config_file = "agents/technical_artist.toml"
+
+[agents.qa_studio]
+description = "Integración y pruebas funcionales en la instancia Roblox Studio del proyecto."
+config_file = "agents/qa_studio.toml"
+
+[agents.economy_analytics]
+description = "Diseño económico, monetización, eventos y experimentos."
+config_file = "agents/economy_analytics.toml"
+
+[agents.release_growth]
+description = "Builds, preparación de publicación, ficha del juego y actualizaciones."
+config_file = "agents/release_growth.toml"

@@ -1,0 +1,15 @@
+.tools/
+artifacts/
+Packages/
+ServerPackages/
+DevPackages/
+*.rbxl.lock
+*.rbxlx.lock
+*.rbxl.autosave
+*.rbxlx.autosave
+.DS_Store
+Thumbs.db
+.env
+.env.*
+!.env.example
+__pycache__/
