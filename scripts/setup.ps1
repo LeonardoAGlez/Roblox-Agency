@@ -20,9 +20,12 @@ try {
     if ($LASTEXITCODE -ne 0) { throw 'No se pudo registrar confianza en los cuatro repositorios seleccionados.' }
     & $rokit install
     if ($LASTEXITCODE -ne 0) { throw 'No se pudo instalar el toolchain.' }
-    $wallyArgs = @('install')
-    if (Test-Path -LiteralPath 'wally.lock') { $wallyArgs += '--locked' }
-    Invoke-AgencyTool -Name wally -Arguments $wallyArgs
+    # Wally 0.3.2 no admite --locked; comprobar que install conserva el lock.
+    $lockHash = if (Test-Path -LiteralPath 'wally.lock') { (Get-FileHash -LiteralPath 'wally.lock' -Algorithm SHA256).Hash } else { $null }
+    Invoke-AgencyTool -Name wally -Arguments @('install')
+    if ($lockHash -and ((Get-FileHash -LiteralPath 'wally.lock' -Algorithm SHA256).Hash -ne $lockHash)) {
+        throw 'Wally modifico wally.lock. Revisa y confirma la resolucion de dependencias antes de continuar.'
+    }
     if (-not (Test-Path -LiteralPath 'roblox.yml')) {
         Invoke-AgencyTool -Name selene -Arguments @('generate-roblox-std')
     }

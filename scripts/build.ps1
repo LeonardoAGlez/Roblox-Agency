@@ -1,5 +1,5 @@
 [CmdletBinding()]
-param([switch]$Test)
+param([switch]$Test, [switch]$Binary)
 . "$PSScriptRoot/common.ps1"
 Push-Location $AgencyRoot
 try {
@@ -8,6 +8,7 @@ try {
     $project = 'default.project.json'
     $fileName = 'RobloxAgency.rbxlx'
     if ($Test) { $project = 'test.project.json'; $fileName = 'RobloxAgencyTests.rbxlx' }
+    if ($Binary) { $fileName = [IO.Path]::ChangeExtension($fileName, '.rbxl') }
     $outputFile = Join-Path $outputDirectory $fileName
     Invoke-AgencyTool -Name rojo -Arguments @('build', $project, '-o', $outputFile)
     Get-FileHash -LiteralPath $outputFile -Algorithm SHA256 | Format-List

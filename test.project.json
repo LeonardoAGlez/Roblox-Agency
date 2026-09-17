@@ -1,13 +1,82 @@
 {
   "name": "RobloxAgencyTests",
   "tree": {
-    "$path": "default.project.json",
+    "$className": "DataModel",
+    "ReplicatedStorage": {
+      "AgencyShared": {
+        "$path": "game/src/shared"
+      }
+    },
     "ServerScriptService": {
-      "AgencyTests": { "$path": "game/tests/server" }
+      "AgencyServer": {
+        "$path": "game/src/server"
+      },
+      "AgencyTests": {
+        "$path": "game/tests/server"
+      }
     },
     "StarterPlayer": {
       "StarterPlayerScripts": {
-        "AgencyIntegrationTests": { "$path": "game/tests/client" }
+        "AgencyClient": {
+          "$path": "game/src/client"
+        },
+        "AgencyIntegrationTests": {
+          "$path": "game/tests/client"
+        }
+      }
+    },
+    "Workspace": {
+      "$properties": {
+        "FilteringEnabled": true
+      },
+      "Baseplate": {
+        "$className": "Part",
+        "$properties": {
+          "Anchored": true,
+          "Size": [
+            128,
+            1,
+            128
+          ],
+          "CFrame": [0, -0.5, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1],
+          "Color": [
+            0.12,
+            0.18,
+            0.24
+          ],
+          "Material": "SmoothPlastic"
+        }
+      },
+      "SpawnLocation": {
+        "$className": "SpawnLocation",
+        "$properties": {
+          "Anchored": true,
+          "Size": [
+            8,
+            1,
+            8
+          ],
+          "CFrame": [0, 0.5, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1],
+          "Color": [
+            0.4,
+            0.91,
+            0.8
+          ],
+          "Neutral": true,
+          "Duration": 0
+        }
+      }
+    },
+    "Lighting": {
+      "$properties": {
+        "Technology": "ShadowMap",
+        "ClockTime": 14,
+        "Brightness": 2,
+        "Ambient": [
+          0.45,
+          0.5,
+          0.6
+        ]
       }
     }
   }

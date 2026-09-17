@@ -41,6 +41,8 @@ Para análisis estricto de tipos, preparar Luau LSP según [typecheck](docs/runb
 
 Los builds se generan en `artifacts/builds/RobloxAgency.rbxlx` y `RobloxAgencyTests.rbxlx`. El segundo contiene las pruebas; el primero las excluye. `check` ejecuta formato, lint, ambos builds y comprueba esa separación. No realiza un playtest.
 
+También puedes generar el formato binario de Studio con `pwsh -NoProfile -File scripts/build.ps1 -Test -Binary`, que produce `artifacts/builds/RobloxAgencyTests.rbxl`. El proyecto de pruebas declara un solo árbol de servicios; no usar `$path` al proyecto base para agregar servicios, porque Rojo los concatena en lugar de fusionarlos.
+
 ## Equipo
 
 | Rol | Función |
@@ -71,4 +73,4 @@ Rojo administra archivos y escena. Para edición en vivo, usa el plugin Rojo ins
 - [Fuentes](docs/sources.md): documentación oficial y referencias comunitarias. Los roles son originales; no se importó un framework externo de orquestación.
 - [Informes](reports/README.md): evidencia resumida y limitaciones. Capturas y builds locales viven en `artifacts/`, excluido de Git.
 
-El workflow de GitHub Actions está preparado; solo podrá ejecutarse remotamente cuando el repositorio se conecte a GitHub. El concepto del primer juego está pendiente de elección.
+El repositorio está conectado a [GitHub](https://github.com/LeonardoAGlez/Roblox-Agency). El workflow de GitHub Actions valida los cambios enviados; los cambios locales posteriores requieren su propia ejecución remota. El primer prototipo elegido es [Defensa del Reactor](Projects/plan-01-reactor-defense.md). La actualización de preparación conserva Rojo/Git; el siguiente encargo de gameplay es [una oleada jugable](tasks/reactor-defense-hito-1.md). El contador sigue siendo la experiencia de validación hasta integrar ese hito.

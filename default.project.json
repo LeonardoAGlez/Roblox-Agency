@@ -20,7 +20,7 @@
         "$properties": {
           "Anchored": true,
           "Size": [128, 1, 128],
-          "Position": [0, -0.5, 0],
+          "CFrame": [0, -0.5, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1],
           "Color": [0.12, 0.18, 0.24],
           "Material": "SmoothPlastic"
         }
@@ -30,7 +30,7 @@
         "$properties": {
           "Anchored": true,
           "Size": [8, 1, 8],
-          "Position": [0, 0.5, 0],
+          "CFrame": [0, 0.5, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1],
           "Color": [0.4, 0.91, 0.8],
           "Neutral": true,
           "Duration": 0
@@ -38,7 +38,7 @@
       }
     },
     "Lighting": {
-      "$properties": { "ClockTime": 14, "Brightness": 2, "Ambient": [0.45, 0.5, 0.6] }
+      "$properties": { "Technology": "ShadowMap", "ClockTime": 14, "Brightness": 2, "Ambient": [0.45, 0.5, 0.6] }
     }
   }
 }
