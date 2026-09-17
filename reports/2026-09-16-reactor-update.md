@@ -11,8 +11,8 @@
 | Análisis estricto | Aprobada | scripts/typecheck.ps1; artifacts/typecheck.log. |
 | Build de pruebas binario | Aprobada | scripts/build.ps1 -Test -Binary. |
 | Revisión independiente | Aprobada | [Informe](2026-09-16-reactor-prep-review.md). |
-| Escena corregida abierta en Studio | No ejecutada aún | Requiere abrir el nuevo binario y verificar con QA; solicitado al propietario. |
-| CI remota de esta actualización | Pendiente | Se registrará ejecución y commit después del envío de la rama de validación. |
+| Escena corregida abierta en Studio | Verificación bloqueada | Binario correcto descubierto y Edit confirmado; lectura execute_luau de fuentes/propiedades abortada tras 233.7 s sin respuesta. No Play ni mutaciones. [QA](2026-09-16-scene-qa.md). |
+| CI remota de esta actualización | Aprobada | Commit c9e5868cd92f8581da61673b124757d367b2bd3c, [run 35174122842](https://github.com/LeonardoAGlez/Roblox-Agency/actions/runs/35174122842): setup, check/build y artefactos aprobados. |
 
 ## Manifiesto de builds
 
@@ -27,3 +27,7 @@ Después de generar los builds, el XML de pruebas cambió en disco a `AF2735117F
 - Limitaciones: ninguna publicación de experiencia ni cambio de acceso de invitados. Los artefactos locales no están versionados. CI y QA deben cerrarse con evidencia propia.
 - Recursos incorporados: ninguno.
 - Siguiente paso: QA verifica apertura, posiciones, iluminación y pruebas afectadas; cerrar preparación antes de aceptar GAME-02. El calendario sigue provisional hasta una oleada jugable.
+
+## Cierre de CI
+
+Enviados 9373b05 y c9e5868 a `codex/reactor-preparation`, sin fusionar main. El primer run 35173954622 falló en setup. Los logs del run/job devolvieron HTTP403; anotaciones solo mostraron exit1. En reproducción aislada, Wally convirtió wally.lock CRLF a LF: cambió el hash 5FE04DD65ECFD353793660E80483A6F16887ED5E0ABBAB2CBE9C3D7F8B32E0C0 a 43608C82FF8D58D1085D13CC84E72E8648DE49A3E9257129B06AE5C1975ED7BD, pero el contenido normalizado fue idéntico. La regla `wally.lock text eol=lf` evita esa diferencia conservando la comprobación estricta de hash. Con ese único cambio adicional, el segundo run pasó íntegramente. No se atribuye el mensaje interno exacto del primer fallo, cuyos logs no fueron accesibles.
